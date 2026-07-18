@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="舞台『光～HIKARI～』へとつながる前日譚。若き日のジョージ・ミラーが街へ出て、人と出会い、商人への道を歩き始める物語。" />
+  <title>舞台『光～HIKARI～』前日譚｜EPISODE ZERO</title>
+  <meta property="og:title" content="舞台『光～HIKARI～』前日譚｜EPISODE ZERO">
+  <meta property="og:description" content="若き日のジョージ・ミラーが街へ出て、人と出会い、商人への道を歩き始める物語。">
+  <meta name="twitter:title" content="舞台『光～HIKARI～』前日譚｜EPISODE ZERO">
+  <meta name="twitter:description" content="舞台『光～HIKARI～』へとつながる、ジョージとエリザベスの前日譚。">
+  <meta name="theme-color" content="#3e291e">
+  <meta name="color-scheme" content="light">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="舞台『光～HIKARI～』前日譚">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="assets/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/episode-01.webp" fetchpriority="high">
+
+  <style>
+    :root {
+      --ink: #2f261e;
+      --ink-soft: #5e5043;
+      --paper: #e9ddc6;
+      --paper-light: #f5eddd;
+      --paper-deep: #d8c4a2;
+      --leather: #6e4630;
+      --leather-dark: #3e291e;
+      --gold: #aa8450;
+      --line: rgba(78, 52, 36, 0.24);
+      --shadow: rgba(48, 31, 21, 0.22);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 5%, rgba(255,255,255,.35), transparent 35%),
+        repeating-linear-gradient(0deg, rgba(82,58,35,.025) 0, rgba(82,58,35,.025) 1px, transparent 1px, transparent 4px),
+        var(--paper);
+      font-family: "Yu Mincho", "Hiragino Mincho ProN", "BIZ UDPMincho", Georgia, serif;
+      line-height: 1.9;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(50, 32, 23, .95);
+      border-bottom: 1px solid rgba(220, 190, 145, .28);
+      box-shadow: 0 8px 28px rgba(36, 23, 17, .22);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: #f4e7cf;
+      text-decoration: none;
+      letter-spacing: .13em;
+      white-space: nowrap;
+      font-size: .96rem;
+    }
+
+    .brand small {
+      display: block;
+      color: #c9ad85;
+      letter-spacing: .2em;
+      font-size: .63rem;
+      margin-top: -3px;
+    }
+
+    .nav-toggle {
+      display: none;
+      color: #f4e7cf;
+      background: transparent;
+      border: 1px solid rgba(244,231,207,.35);
+      padding: 7px 10px;
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    .nav-list {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #e9d7b9;
+      font-size: .86rem;
+      letter-spacing: .08em;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      padding: 8px 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-list a:hover { border-color: var(--gold); color: white; }
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(45,28,18,.38), rgba(45,28,18,.7)),
+        radial-gradient(circle at 70% 30%, rgba(244,214,164,.26), transparent 30%),
+        linear-gradient(125deg, #8d6549 0%, #4f3427 52%, #281b16 100%);
+      color: #f7ecd9;
+      border-bottom: 8px solid var(--leather-dark);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      opacity: .23;
+      background: repeating-linear-gradient(90deg, transparent 0 56px, rgba(255,255,255,.035) 57px 58px);
+    }
+
+    .hero::after {
+      box-shadow: inset 0 0 130px rgba(0,0,0,.7);
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 2;
+      width: min(850px, calc(100% - 36px));
+      padding: 72px 68px;
+      text-align: center;
+      border: 1px solid rgba(231,205,163,.42);
+      outline: 1px solid rgba(231,205,163,.13);
+      outline-offset: -10px;
+      background: rgba(49, 31, 22, .52);
+      box-shadow: 0 24px 80px rgba(0,0,0,.28);
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: #d4b47e;
+      font-size: .76rem;
+      letter-spacing: .34em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 5.7rem);
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-indent: .14em;
+      line-height: 1.12;
+    }
+
+    .hero-subtitle {
+      margin: 22px auto 0;
+      max-width: 620px;
+      color: #ead9bf;
+      font-size: clamp(.98rem, 2vw, 1.25rem);
+      letter-spacing: .08em;
+    }
+
+    .hero-note {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 8px 18px;
+      color: #d8c09d;
+      border-top: 1px solid rgba(216,192,157,.45);
+      border-bottom: 1px solid rgba(216,192,157,.45);
+      font-size: .78rem;
+      letter-spacing: .16em;
+    }
+
+
+    .stage-link-block {
+      margin: 34px auto 0;
+      max-width: 650px;
+      padding: 24px 28px;
+      border: 1px solid rgba(231,205,163,.34);
+      background: rgba(35,22,16,.46);
+    }
+
+    .stage-link-block h2 {
+      margin: 0 0 8px;
+      color: #f3e3c8;
+      font-size: 1.28rem;
+      letter-spacing: .1em;
+    }
+
+    .stage-link-block p {
+      margin: 0 0 18px;
+      color: #dbc8aa;
+      font-size: .9rem;
+      line-height: 1.8;
+    }
+
+    .stage-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 12px 25px;
+      color: #2f2118;
+      background: #d6b47d;
+      border: 1px solid #ead2a8;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: .06em;
+      box-shadow: 0 10px 24px rgba(0,0,0,.2);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .stage-button:hover {
+      background: #ead0a0;
+      transform: translateY(-2px);
+    }
+
+    .footer-stage-link {
+      max-width: 720px;
+      margin: 0 auto 35px;
+      padding-bottom: 35px;
+      border-bottom: 1px solid rgba(215,193,160,.2);
+    }
+
+    .footer-stage-link h2 {
+      margin: 0 0 12px;
+      color: #f2e3cb;
+      font-size: clamp(1.45rem, 3vw, 2rem);
+      letter-spacing: .1em;
+    }
+
+    .footer-stage-link p {
+      max-width: 610px;
+      margin: 0 auto 20px;
+      color: #baa183;
+      font-size: .9rem;
+      line-height: 1.9;
+    }
+
+    main { overflow: hidden; }
+    section { padding: 100px 24px; }
+    .section-inner { max-width: 1050px; margin: 0 auto; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-heading .number {
+      display: block;
+      color: var(--gold);
+      font-size: .72rem;
+      letter-spacing: .28em;
+      margin-bottom: 7px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 500;
+      letter-spacing: .13em;
+    }
+
+    .ornament {
+      width: 78px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px auto 0;
+      position: relative;
+    }
+
+    .ornament::after {
+      content: "◆";
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -52%);
+      padding: 0 9px;
+      color: var(--gold);
+      background: var(--paper);
+      font-size: .55rem;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 50px;
+      align-items: stretch;
+    }
+
+    .paper-card,
+    .leather-card {
+      padding: 42px;
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 50px var(--shadow);
+    }
+
+    .paper-card {
+      background:
+        repeating-linear-gradient(0deg, rgba(88,65,42,.025) 0, rgba(88,65,42,.025) 1px, transparent 1px, transparent 5px),
+        var(--paper-light);
+    }
+
+    .paper-card p:first-child::first-letter {
+      float: left;
+      font-size: 4.2rem;
+      line-height: .82;
+      padding: 8px 10px 0 0;
+      color: var(--leather);
+    }
+
+    .leather-card {
+      color: #f1e2c8;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.08), transparent 35%),
+        linear-gradient(140deg, #7b5138, #4d3024 70%, #352219);
+      border-color: rgba(244,224,191,.23);
+      outline: 1px solid rgba(244,224,191,.1);
+      outline-offset: -10px;
+    }
+
+    .leather-card h3 { color: #d7b783; font-weight: 500; letter-spacing: .1em; }
+    .quote { font-size: 1.25rem; line-height: 2; margin: 18px 0; }
+
+    .characters { background: rgba(255,248,234,.48); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .character-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+
+    .character-card {
+      min-height: 330px;
+      position: relative;
+      padding: 30px 28px;
+      background: var(--paper-light);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 34px rgba(65,45,30,.13);
+      overflow: hidden;
+    }
+
+    .character-card.featured {
+      padding: 0;
+      display: grid;
+      grid-template-columns: minmax(180px, .9fr) minmax(0, 1.1fr);
+      min-height: 430px;
+    }
+
+    .character-image-wrap {
+      min-height: 430px;
+      overflow: hidden;
+      background: #d9c5a6;
+      border-right: 1px solid var(--line);
+    }
+
+    .character-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .character-content {
+      position: relative;
+      z-index: 1;
+      padding: 34px 30px;
+      align-self: center;
+    }
+
+    .character-card::before {
+      content: attr(data-initial);
+      position: absolute;
+      right: -6px;
+      top: -35px;
+      color: rgba(112,72,46,.09);
+      font-size: 9rem;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+
+    .character-card h3 { margin: 0 0 4px; font-size: 1.45rem; letter-spacing: .08em; }
+    .character-card .en { color: var(--gold); font-size: .75rem; letter-spacing: .2em; }
+    .character-card .role { display: inline-block; margin: 20px 0 13px; padding: 4px 10px; border: 1px solid var(--line); font-size: .72rem; }
+    .character-card p { font-size: .93rem; color: var(--ink-soft); }
+
+    .episode-list { display: grid; gap: 18px; }
+    .episode {
+      display: grid;
+      grid-template-columns: 110px 1fr auto;
+      gap: 25px;
+      align-items: center;
+      padding: 25px 28px;
+      background: rgba(247,238,221,.75);
+      border-left: 5px solid var(--leather);
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .episode-no { color: var(--gold); font-size: .76rem; letter-spacing: .12em; }
+    .episode h3 { margin: 0 0 4px; font-size: 1.2rem; letter-spacing: .08em; }
+    .episode p { margin: 0; color: var(--ink-soft); font-size: .9rem; }
+    .status { padding: 5px 11px; border: 1px solid var(--line); font-size: .68rem; white-space: nowrap; }
+    .status.done { color: #5d3b29; background: rgba(170,132,80,.13); }
+
+    .world {
+      color: #f2e5cf;
+      background:
+        linear-gradient(rgba(42,27,20,.91), rgba(42,27,20,.95)),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 1px, transparent 1px 60px),
+        var(--leather-dark);
+    }
+
+    .world .ornament::after { background: #34231b; }
+    .world-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+    .world-item { padding: 30px; border: 1px solid rgba(222,194,151,.25); background: rgba(255,255,255,.025); }
+    .world-item h3 { margin-top: 0; color: #d5b17c; font-weight: 500; }
+    .world-item p { color: #d9c8ae; }
+
+    .album-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .album-card {
+      aspect-ratio: 4 / 3;
+      padding: 16px;
+      background: #f4ead7;
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 28px rgba(58,38,26,.15);
+      transform: rotate(var(--r, 0deg));
+    }
+
+    .album-image {
+      height: 78%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 22px;
+      color: #ead8b9;
+      background:
+        linear-gradient(rgba(56,38,27,.18), rgba(56,38,27,.38)),
+        radial-gradient(circle at 70% 20%, #a9825e, transparent 28%),
+        linear-gradient(135deg, #79604c, #3c3028);
+      font-size: .85rem;
+      letter-spacing: .08em;
+    }
+
+    .album-caption { margin: 10px 5px 0; text-align: center; font-size: .78rem; color: var(--ink-soft); }
+
+    footer {
+      padding: 55px 24px;
+      text-align: center;
+      color: #d7c1a0;
+      background: #271b16;
+      border-top: 6px solid #5b3828;
+    }
+
+    footer .title { font-size: 1.2rem; letter-spacing: .14em; }
+    footer p { margin: 10px 0 0; font-size: .8rem; color: #a98e70; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: .75s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 820px) {
+      .nav-toggle { display: block; }
+      .nav-list {
+        display: none;
+        position: absolute;
+        left: 0; right: 0; top: 100%;
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 24px 18px;
+        background: rgba(50,32,23,.98);
+      }
+      .nav-list.open { display: flex; }
+      .intro-grid, .world-grid { grid-template-columns: 1fr; }
+      .character-grid { grid-template-columns: 1fr; }
+      .character-card.featured { grid-template-columns: 230px 1fr; }
+      .album-grid { grid-template-columns: 1fr 1fr; }
+      .hero-card { padding: 55px 28px; }
+      .episode { grid-template-columns: 85px 1fr; }
+      .episode .status { grid-column: 2; justify-self: start; }
+    }
+
+    @media (max-width: 560px) {
+      section { padding: 78px 18px; }
+      .nav-wrap { padding: 10px 16px; }
+      .character-grid, .album-grid { grid-template-columns: 1fr; }
+      .character-card.featured { grid-template-columns: 1fr; }
+      .character-image-wrap { min-height: 420px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .paper-card, .leather-card { padding: 30px 25px; }
+      .episode { grid-template-columns: 1fr; gap: 6px; padding: 22px; }
+      .episode .status { grid-column: auto; }
+      .hero { min-height: 76vh; }
+      .hero-card { width: calc(100% - 24px); }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top">舞台『光～HIKARI～』前日譚<small>EPISODE ZERO</small></a>
+      <button class="nav-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-navigation">MENU</button>
+      <ul class="nav-list" id="site-navigation">
+        <li><a href="#about">作品紹介</a></li>
+        <li><a href="#characters">登場人物</a></li>
+        <li><a href="#episodes">エピソード一覧</a></li>
+        <li><a href="#world">世界観</a></li>
+        <li><a href="#album">アルバム</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="hero" id="top">
+    <div class="hero-card">
+      <p class="eyebrow">Stage “HIKARI” — Episode Zero</p>
+      <h1>舞台『光～HIKARI～』<br><span style="font-size:.48em;letter-spacing:.22em">前日譚</span></h1>
+      <p class="hero-subtitle">舞台『光～HIKARI～』へとつながる、ひとりの青年の物語。<br>彼はまだ、父でも、当主でも、起業家でもなかった。</p>
+      <span class="hero-note">1880年代のアメリカを思わせる、架空の街にて</span>
+      <div class="stage-link-block">
+        <h2>舞台『光～HIKARI～』</h2>
+        <p>この前日譚は、舞台『光～HIKARI～』へと続く物語です。公演情報・チケットのご案内はこちらからご覧いただけます。</p>
+        <a class="stage-button" href="https://hikari202608.hp.peraichi.com" target="_blank" rel="noopener noreferrer">▶ この物語の続きを舞台で見る</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section id="about">
+      <div class="section-inner reveal">
+        <div class="section-heading">
+          <span class="number">01 — ABOUT</span>
+          <h2>作品紹介</h2>
+          <div class="ornament"></div>
+        </div>
+        <div class="intro-grid">
+          <div class="paper-card">
+            <p>貧しい農村に生まれた青年、ジョージ・ミラー。人の動きや商いの流れを見つめる目を持ちながら、彼はまだ自分が何者になるのかを知らない。</p>
+            <p>父の言葉を胸に街へ出たジョージは、日雇いの仕事、市場の人々、商会、そして後に人生をともにすることになる少女エリザベスと出会う。</p>
+            <p>これは、舞台『光～HIKARI～』に登場するジョージが、家族を持ち、何かを得て、そして失うよりもずっと前の物語。</p>
+          </div>
+          <div class="leather-card">
+            <h3>この物語で描かれるもの</h3>
+            <p class="quote">「成功する人間」の物語ではなく、<br>ひとつずつ信用を積み重ね、<br>自分の進む道を見つけていく人間の物語。</p>
+            <p>本編を知らなくても楽しめます。前日譚を読んでから舞台を観ると、登場人物たちの言葉や沈黙が、少しだけ違って見えるかもしれません。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="characters" id="characters">
+      <div class="section-inner reveal">
+        <div class="section-heading">
+          <span class="number">02 — CHARACTERS</span>
+          <h2>登場人物</h2>
+          <div class="ornament"></div>
+        </div>
+        <div class="character-grid">
+          <article class="character-card featured" data-initial="G">
+            <div class="character-image-wrap">
+              <img class="character-image" loading="lazy" decoding="async" src="assets/george-21.webp" alt="21歳のジョージ・ミラー">
+            </div>
+            <div class="character-content">
+              <h3>ジョージ・ミラー</h3>
+              <div class="en">GEORGE MILLER</div>
+              <span class="role">21歳／農村出身の青年</span>
+              <p>観察したものの中から、繰り返し使える仕組みを見つけることに長ける。慎重で、決意を言葉より行動で示すタイプ。街で働きながら、商人への道を歩み始める。</p>
+            </div>
+          </article>
+          <article class="character-card featured" data-initial="E">
+            <div class="character-image-wrap">
+              <img class="character-image" loading="lazy" decoding="async" src="assets/elizabeth-16.webp" alt="16歳のエリザベス・ランカスター">
+            </div>
+            <div class="character-content">
+              <h3>エリザベス・ランカスター</h3>
+              <div class="en">ELIZABETH LANCASTER</div>
+              <span class="role">16歳／ランカスター家の令嬢</span>
+              <p>名家に生まれながら、人を肩書きだけで見ない少女。ジョージと出会った頃は、まだ互いの人生が交わることを知らない。</p>
+            </div>
+          </article>
+          <article class="character-card" data-initial="S">
+            <h3>ソフィア</h3>
+            <div class="en">SOPHIA</div>
+            <span class="role">街で働く女性</span>
+            <p>直感に優れ、機を見るのがうまい。慎重なジョージとは対照的な、大胆な投機家気質。彼に「自分とは違う世界の見方」を教える存在。</p>
+          </article>
+          <article class="character-card" data-initial="B">
+            <h3>バトラー</h3>
+            <div class="en">BUTLER</div>
+            <span class="role">ランカスター家の執事</span>
+            <p>長身で寡黙。屋敷の秩序を静かに守る。言葉は少ないが、その振る舞いには当主と使用人の境界がはっきりと表れる。</p>
+          </article>
+          <article class="character-card" data-initial="A">
+            <h3>アルフレッド</h3>
+            <div class="en">ALFRED</div>
+            <span class="role">ランカスター家の庭師</span>
+            <p>酒好きで口が軽く、時折余計な一言を添える。屋敷の空気に人間らしい温度を加える存在。</p>
+          </article>
+          <article class="character-card" data-initial="L">
+            <h3>ランカスター家</h3>
+            <div class="en">THE LANCASTERS</div>
+            <span class="role">街の名家</span>
+            <p>父エドワード、母マーガレット、そして娘エリザベス。イギリスから移住した家系で、街の経済と歴史に関わる古い名家。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="episodes">
+      <div class="section-inner reveal">
+        <div class="section-heading">
+          <span class="number">03 — EPISODES</span>
+          <h2>エピソード一覧</h2>
+          <div class="ornament"></div>
+        </div>
+        <div class="episode-list">
+          <a class="episode" href="episodes/episode-01.html" style="text-decoration:none"><div class="episode-no">EPISODE 01</div><div><h3>街へ</h3><p>本文とアルバムを読む</p></div><span class="status done">公開中</span></a>
+          <a class="episode" href="episodes/episode-02.html" style="text-decoration:none"><div class="episode-no">EPISODE 02</div><div><h3>初めての儲け</h3><p>本文とアルバムを読む</p></div><span class="status done">公開中</span></a>
+          <a class="episode" href="episodes/episode-03.html" style="text-decoration:none"><div class="episode-no">EPISODE 03</div><div><h3>放っておけない人</h3><p>本文とアルバムを読む</p></div><span class="status done">公開中</span></a>
+          <a class="episode" href="episodes/episode-04.html" style="text-decoration:none"><div class="episode-no">EPISODE 04</div><div><h3>ランカスター家</h3><p>本文とアルバムを読む</p></div><span class="status done">公開中</span></a>
+          <a class="episode" href="episodes/episode-05.html" style="text-decoration:none"><div class="episode-no">EPISODE 05</div><div><h3>見るもの</h3><p>本文とアルバムを読む</p></div><span class="status done">公開中</span></a>
+          <a class="episode" href="episodes/episode-06.html" style="text-decoration:none"><div class="episode-no">EPISODE 06</div><div><h3>商会</h3><p>本文とアルバムを読む</p></div><span class="status done">公開中</span></a>
+          <article class="episode"><div class="episode-no">SPECIAL</div><div><h3>大道芸（仮）</h3><p>仕事を忘れ、夢について口にする。ジョージがエリザベスの横顔を見つめた日。</p></div><span class="status">構想中</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="world" id="world">
+      <div class="section-inner reveal">
+        <div class="section-heading">
+          <span class="number">04 — WORLD</span>
+          <h2>世界観</h2>
+          <div class="ornament"></div>
+        </div>
+        <div class="world-grid">
+          <div class="world-item"><h3>時代</h3><p>1880年代のアメリカを思わせる架空の時代。馬車、商会、市場、万年筆、新聞、名家の屋敷が同じ街に息づいている。</p></div>
+          <div class="world-item"><h3>街</h3><p>農村から人と物が集まり、店と商会が育ち始めた地方都市。古い身分秩序と、新しい商いの力が同居している。</p></div>
+          <div class="world-item"><h3>商い</h3><p>ジョージが見ているのは、品物そのものだけではない。誰が、どこから、どこへ運び、何を必要としているのか。その流れに価値を見つける。</p></div>
+          <div class="world-item"><h3>舞台『光』とのつながり</h3><p>前日譚は本編の答えを説明するためのものではありません。登場人物がなぜその選択をしたのか、その奥にある時間を静かに補う物語です。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="album">
+      <div class="section-inner reveal">
+        <div class="section-heading">
+          <span class="number">05 — ALBUM</span>
+          <h2>アルバム</h2>
+          <div class="ornament"></div>
+        </div>
+        <div class="album-grid">
+          <figure class="album-card" style="--r:-1.2deg"><a href="episodes/episode-01.html"><img class="album-image" loading="lazy" decoding="async" src="assets/episode-01.webp" alt="Episode 01 街へ"></a><figcaption class="album-caption">Episode 01 — 街へ</figcaption></figure>
+          <figure class="album-card" style="--r:1deg"><a href="episodes/episode-02.html"><img class="album-image" loading="lazy" decoding="async" src="assets/episode-02.webp" alt="Episode 02 初めての儲け"></a><figcaption class="album-caption">Episode 02 — 初めての儲け</figcaption></figure>
+          <figure class="album-card" style="--r:-.5deg"><a href="episodes/episode-03.html"><img class="album-image" loading="lazy" decoding="async" src="assets/episode-03.webp" alt="Episode 03 放っておけない人"></a><figcaption class="album-caption">Episode 03 — 放っておけない人</figcaption></figure>
+          <figure class="album-card" style="--r:.8deg"><a href="episodes/episode-04.html"><img class="album-image" src="assets/episode-04.webp" alt="Episode 04 ランカスター家" loading="lazy" decoding="async"></a><figcaption class="album-caption">Episode 04 — ランカスター家</figcaption></figure>
+          <figure class="album-card" style="--r:-1deg"><a href="episodes/episode-05.html"><img class="album-image" loading="lazy" decoding="async" src="assets/episode-05.webp" alt="Episode 05 見るもの"></a><figcaption class="album-caption">Episode 05 — 見るもの</figcaption></figure>
+          <figure class="album-card" style="--r:.6deg"><a href="episodes/episode-06.html"><img class="album-image" loading="lazy" decoding="async" src="assets/episode-06.webp" alt="Episode 06 商会"></a><figcaption class="album-caption">Episode 06 — 商会</figcaption></figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-stage-link">
+      <h2>この物語の続きは舞台で。</h2>
+      <p>前日譚をお読みいただき、ありがとうございます。ジョージとエリザベスのその後、そして家族の物語は、舞台本編で描かれます。</p>
+      <a class="stage-button" href="https://hikari202608.hp.peraichi.com" target="_blank" rel="noopener noreferrer">▶ この物語の続きを舞台で見る</a>
+    </div>
+    <div class="title">舞台『光～HIKARI～』前日譚 — EPISODE ZERO</div>
+    <p>舞台『光～HIKARI～』の世界から生まれた物語</p>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.nav-list');
+    toggle.addEventListener('click', () => { const open = nav.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
