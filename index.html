@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8DNPQG0FT4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8DNPQG0FT4');
+</script>
+<!-- End Google tag -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="舞台『光～HIKARI～』へとつながる前日譚。若き日のジョージ・ミラーが街へ出て、人と出会い、商人への道を歩き始める物語。" />
@@ -699,5 +708,31 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+<!-- GA4 custom events -->
+<script>
+  document.querySelectorAll('a[href="https://hikari202608.hp.peraichi.com"]').forEach((link, index) => {
+    link.addEventListener('click', () => {
+      gtag('event', 'stage_lp_click', {
+        link_url: link.href,
+        link_text: link.textContent.trim(),
+        link_position: index === 0 ? 'primary' : 'secondary'
+      });
+    });
+  });
+
+  document.querySelectorAll('audio').forEach((audio) => {
+    let sent = false;
+    audio.addEventListener('play', () => {
+      if (sent) return;
+      sent = true;
+      const source = audio.querySelector('source');
+      gtag('event', 'bgm_play', {
+        audio_file: source ? source.getAttribute('src') : '',
+        page_title: document.title
+      });
+    });
+  });
+</script>
+<!-- End GA4 custom events -->
 </body>
 </html>
