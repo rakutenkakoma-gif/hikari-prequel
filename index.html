@@ -817,7 +817,7 @@
 
 
     <section id="archive" class="archive-section">
-      <div class="section-inner reveal">
+      <div class="section-inner">
         <div class="section-heading">
           <span class="number">STAGE ARCHIVE</span>
           <h2>舞台アーカイブ</h2>
@@ -1009,7 +1009,7 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.05 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
