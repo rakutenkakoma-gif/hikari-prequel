@@ -537,6 +537,30 @@
     .media-card h4 { margin:10px 0 12px; font-size:1.25rem; }
     .media-card p { color:var(--ink-soft); }
     .coming-label { display:inline-block; margin-top:10px; padding:5px 10px; border:1px solid var(--line); font-size:.68rem; letter-spacing:.1em; }
+    .song-note { margin: 0 0 28px; padding: 16px 18px; color: var(--ink-soft); background: rgba(170,132,80,.08); border-left: 4px solid var(--gold); font-size: .88rem; }
+    .song-timeline { position: relative; display: grid; gap: 22px; margin-top: 28px; }
+    .song-timeline::before { content: ""; position: absolute; left: 48px; top: 18px; bottom: 18px; width: 1px; background: var(--line); }
+    .song-card { position: relative; display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 22px; padding: 26px 28px; background: var(--paper-light); border: 1px solid var(--line); box-shadow: 0 10px 28px rgba(58,38,26,.1); }
+    .song-scene { position: relative; z-index: 1; align-self: start; padding: 7px 8px; text-align: center; color: var(--leather-dark); background: var(--paper-light); border: 1px solid var(--gold); font-size: .7rem; letter-spacing: .12em; }
+    .song-content h4 { margin: 0 0 5px; font-size: 1.35rem; letter-spacing: .06em; }
+    .song-artist { margin: 0 0 12px; color: var(--gold); font-size: .78rem; letter-spacing: .12em; }
+    .song-description { margin: 0 0 18px; color: var(--ink-soft); }
+    .youtube-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 9px 17px; color: #f8ead3; background: var(--leather-dark); border: 1px solid var(--leather-dark); text-decoration: none; font-size: .82rem; letter-spacing: .08em; transition: transform .2s ease, background .2s ease; }
+    .youtube-link:hover { transform: translateY(-2px); background: var(--leather); }
+    .youtube-card { overflow: hidden; padding: 0; }
+    .youtube-thumb { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; background: #2d2019; }
+    .youtube-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease, filter .3s ease; }
+    .youtube-thumb::after { content: "▶"; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); display: grid; place-items: center; width: 66px; height: 46px; padding-left: 3px; color: white; background: #c62828; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.34); font-family: Arial, sans-serif; font-size: 1.25rem; transition: transform .2s ease, background .2s ease; }
+    .youtube-thumb:hover img { transform: scale(1.035); filter: brightness(.82); }
+    .youtube-thumb:hover::after { transform: translate(-50%,-50%) scale(1.08); background: #e62117; }
+    .youtube-card-body { padding: 24px 26px 27px; }
+    .youtube-card-body h4 { margin: 8px 0 6px; }
+    .youtube-card-body .song-artist { margin-bottom: 12px; }
+    .youtube-action { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 9px 17px; color: #fff; background: #c62828; border: 1px solid #c62828; text-decoration: none; font-family: inherit; font-size: .82rem; letter-spacing: .06em; transition: transform .2s ease, background .2s ease; }
+    .youtube-action::before { content: "▶"; font-family: Arial, sans-serif; font-size: .78rem; }
+    .youtube-action:hover { transform: translateY(-2px); background: #e62117; }
+    .coming-card { display: flex; flex-direction: column; justify-content: center; min-height: 250px; background: linear-gradient(145deg, rgba(110,70,48,.08), rgba(170,132,80,.08)), var(--paper-light); }
+
     .future-section { color:#f2e5cf; background:linear-gradient(rgba(39,27,22,.92),rgba(39,27,22,.96)),radial-gradient(circle at 50% 0%,rgba(212,180,126,.25),transparent 45%); }
     .future-card { max-width:760px; margin:0 auto; padding:70px 28px; text-align:center; border:1px solid rgba(222,194,151,.28); }
     .future-card > span { color:#d4b47e; letter-spacing:.32em; font-size:.76rem; }
@@ -568,6 +592,9 @@
       section { padding: 78px 18px; }
       .nav-wrap { padding: 10px 16px; }
       .character-grid, .episode-list, .archive-grid, .documents-grid, .media-grid { grid-template-columns: 1fr; }
+      .song-timeline::before { display:none; }
+      .song-card { grid-template-columns: 1fr; gap: 14px; padding: 22px; }
+      .song-scene { justify-self: start; }
       .performance-info div { grid-template-columns: 1fr; }
       .performance-info dt { padding-bottom: 5px; }
       .performance-info dd { padding-top: 5px; }
@@ -805,7 +832,7 @@
             <div><dt>会場</dt><dd>たましんRISURU小ホール</dd></div>
             <div><dt>主催</dt><dd>NPO法人脳響トーンシステム／たちかわ演劇祭実行委員会</dd></div>
             <div><dt>脚本・演出</dt><dd>多加野 詩子</dd></div>
-            <div><dt>プロデューサー</dt><dd>板本 久美子</dd></div>
+            <div><dt>プロデューサー</dt><dd>榎本 久美子</dd></div>
           </dl>
         </article>
 
@@ -841,18 +868,116 @@
 
         <article class="archive-block">
           <h3>音楽</h3>
-          <p class="archive-lead">舞台のために生まれた公式オリジナル楽曲と、登場人物をイメージして制作された非公式イメージソングを公開予定です。</p>
           <div class="media-grid">
             <div class="media-card"><span class="media-label">OFFICIAL</span><h4>公式オリジナル楽曲</h4><p>YouTube公開後、こちらから視聴できます。</p><span class="coming-label">COMING SOON</span></div>
-            <div class="media-card"><span class="media-label">IMAGE SONGS</span><h4>非公式イメージソング</h4><p>ジョージ、エリザベス、ウィル、ソフィアの楽曲を掲載予定です。</p><span class="coming-label">COMING SOON</span></div>
+          </div>
+
+          <h3 style="margin-top:46px">非公式イメージソング</h3>
+          <p class="song-note">本楽曲は、舞台本編をイメージして制作された非公式イメージソングです。</p>
+          <div class="song-timeline">
+            <article class="song-card youtube-card">
+              <div class="song-scene">SCENE 1</div>
+              <div>
+                <a class="youtube-thumb" href="https://youtu.be/mzhoipAHqMM" target="_blank" rel="noopener noreferrer" aria-label="音のない祝福をYouTubeで聴く">
+                  <img src="https://i.ytimg.com/vi/mzhoipAHqMM/hqdefault.jpg" loading="lazy" decoding="async" alt="音のない祝福 YouTubeサムネイル">
+                </a>
+                <div class="youtube-card-body">
+                  <h4>音のない祝福</h4>
+                  <p class="song-artist">― ジョージ イメージソング ―</p>
+                  <p class="song-description">第1場で、ウィルの誕生を待つ父親ジョージの心情を歌った楽曲です。</p>
+                  <a class="youtube-action" href="https://youtu.be/mzhoipAHqMM" target="_blank" rel="noopener noreferrer">YouTubeで聴く</a>
+                </div>
+              </div>
+            </article>
+            <article class="song-card youtube-card">
+              <div class="song-scene">SCENE 3</div>
+              <div>
+                <a class="youtube-thumb" href="https://youtu.be/Gi8KhBZD6BE" target="_blank" rel="noopener noreferrer" aria-label="教えてくれたをYouTubeで聴く">
+                  <img src="https://i.ytimg.com/vi/Gi8KhBZD6BE/hqdefault.jpg" loading="lazy" decoding="async" alt="教えてくれた YouTubeサムネイル">
+                </a>
+                <div class="youtube-card-body">
+                  <h4>教えてくれた</h4>
+                  <p class="song-artist">― エリザベス イメージソング ―</p>
+                  <p class="song-description">第3場で、エリザベスがウィルの優しさに触れ、母親としての決意を新たにする気持ちを歌った楽曲です。</p>
+                  <a class="youtube-action" href="https://youtu.be/Gi8KhBZD6BE" target="_blank" rel="noopener noreferrer">YouTubeで聴く</a>
+                </div>
+              </div>
+            </article>
+            <article class="song-card youtube-card">
+              <div class="song-scene">SCENE 7</div>
+              <div>
+                <a class="youtube-thumb" href="https://youtu.be/-koO-X4yvgY" target="_blank" rel="noopener noreferrer" aria-label="見ないでくれをYouTubeで聴く">
+                  <img src="https://i.ytimg.com/vi/-koO-X4yvgY/hqdefault.jpg" loading="lazy" decoding="async" alt="見ないでくれ YouTubeサムネイル">
+                </a>
+                <div class="youtube-card-body">
+                  <h4>見ないでくれ</h4>
+                  <p class="song-artist">― ジョージ イメージソング ―</p>
+                  <p class="song-description">第7場で、現実を直視できず、罪悪感で心が壊れていくジョージを激しく歌った楽曲です。</p>
+                  <a class="youtube-action" href="https://youtu.be/-koO-X4yvgY" target="_blank" rel="noopener noreferrer">YouTubeで聴く</a>
+                </div>
+              </div>
+            </article>
+            <article class="song-card youtube-card">
+              <div class="song-scene">SCENE 9</div>
+              <div>
+                <a class="youtube-thumb" href="https://youtu.be/mwFh8Q2diGI" target="_blank" rel="noopener noreferrer" aria-label="はじめてのことばをYouTubeで聴く">
+                  <img src="https://i.ytimg.com/vi/mwFh8Q2diGI/hqdefault.jpg" loading="lazy" decoding="async" alt="はじめてのことば YouTubeサムネイル">
+                </a>
+                <div class="youtube-card-body">
+                  <h4>はじめてのことば</h4>
+                  <p class="song-artist">― ウィル イメージソング ―</p>
+                  <p class="song-description">第9場で、ウィルの世界に初めて言葉が生まれるシーンを歌った楽曲です。</p>
+                  <a class="youtube-action" href="https://youtu.be/mwFh8Q2diGI" target="_blank" rel="noopener noreferrer">YouTubeで聴く</a>
+                </div>
+              </div>
+            </article>
+            <article class="song-card youtube-card">
+              <div class="song-scene">FINALE</div>
+              <div>
+                <a class="youtube-thumb" href="https://youtu.be/Ui_bl-OWOpE" target="_blank" rel="noopener noreferrer" aria-label="ここにある光をYouTubeで聴く">
+                  <img src="https://i.ytimg.com/vi/Ui_bl-OWOpE/hqdefault.jpg" loading="lazy" decoding="async" alt="ここにある光 YouTubeサムネイル">
+                </a>
+                <div class="youtube-card-body">
+                  <h4>ここにある光</h4>
+                  <p class="song-artist">― ジョージ＆エリザベス イメージソング ―</p>
+                  <p class="song-description">舞台の最後、ジョージとエリザベスが光（ウィル）とともに歩き出すシーンを歌った楽曲です。</p>
+                  <a class="youtube-action" href="https://youtu.be/Ui_bl-OWOpE" target="_blank" rel="noopener noreferrer">YouTubeで聴く</a>
+                </div>
+              </div>
+            </article>
+            <article class="song-card youtube-card">
+              <div class="song-scene">CHARACTER</div>
+              <div>
+                <a class="youtube-thumb" href="https://youtu.be/3F8LIIiSIoI" target="_blank" rel="noopener noreferrer" aria-label="風を見るをYouTubeで聴く">
+                  <img src="https://i.ytimg.com/vi/3F8LIIiSIoI/hqdefault.jpg" loading="lazy" decoding="async" alt="風を見る YouTubeサムネイル">
+                </a>
+                <div class="youtube-card-body">
+                  <h4>風を見る</h4>
+                  <p class="song-artist">― ソフィア テーマソング ―</p>
+                  <p class="song-description">みんな大好きソフィアのテーマソングです。</p>
+                  <a class="youtube-action" href="https://youtu.be/3F8LIIiSIoI" target="_blank" rel="noopener noreferrer">YouTubeで聴く</a>
+                </div>
+              </div>
+            </article>
           </div>
         </article>
 
         <article class="archive-block">
           <h3>映像</h3>
           <div class="media-grid">
-            <div class="media-card"><span class="media-label">MOVIE</span><h4>舞台総集編</h4><p>YouTube公開後、こちらから視聴できます。</p><span class="coming-label">COMING SOON</span></div>
-            <div class="media-card"><span class="media-label">CURTAIN CALL</span><h4>カーテンコール</h4><p>公演の最後を飾ったカーテンコール映像を掲載予定です。</p><span class="coming-label">COMING SOON</span></div>
+            <div class="media-card coming-card"><span class="media-label">MOVIE</span><h4>舞台総集編</h4><p>公開まで、もうしばらくお待ちください。</p><span class="coming-label">COMING SOON</span></div>
+            <article class="media-card youtube-card">
+              <a class="youtube-thumb" href="https://youtu.be/rYoYiy9bSmQ" target="_blank" rel="noopener noreferrer" aria-label="カーテンコールをYouTubeで見る">
+                <img src="https://i.ytimg.com/vi/rYoYiy9bSmQ/hqdefault.jpg" loading="lazy" decoding="async" alt="舞台『光～HIKARI～』カーテンコール YouTubeサムネイル">
+              </a>
+              <div class="youtube-card-body">
+                <span class="media-label">CURTAIN CALL</span>
+                <h4>カーテンコール</h4>
+                <p>千秋楽での感動のカーテンコール。</p>
+                <a class="youtube-action" href="https://youtu.be/rYoYiy9bSmQ" target="_blank" rel="noopener noreferrer">YouTubeで見る</a>
+              </div>
+            </article>
+            <div class="media-card coming-card"><span class="media-label">MESSAGE</span><h4>お礼動画</h4><p>公開まで、もうしばらくお待ちください。</p><span class="coming-label">COMING SOON</span></div>
           </div>
         </article>
       </div>
