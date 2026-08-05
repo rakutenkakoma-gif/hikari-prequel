@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="舞台『光～HIKARI～』の公式アーカイブ。前日譚、公演資料、音楽、映像を公開しています。" />
   <title>舞台『光～HIKARI～』公式アーカイブ</title>
+  <meta name="generator" content="HIKARI Archive Ver.7">
   <meta property="og:title" content="舞台『光～HIKARI～』公式アーカイブ">
   <meta property="og:description" content="舞台『光～HIKARI～』の前日譚、公演資料、音楽、映像を公開しています。">
   <meta name="twitter:title" content="舞台『光～HIKARI～』公式アーカイブ">
@@ -497,8 +498,8 @@
     footer .title { font-size: 1.2rem; letter-spacing: .14em; }
     footer p { margin: 10px 0 0; font-size: .8rem; color: #a98e70; }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: .75s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
+    /* Ver.7: all content is always visible. */
+    .reveal { opacity: 1; transform: none; }
 
 
     .hero-actions { margin-top: 34px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
@@ -606,6 +607,26 @@
       .episode .status { justify-self: start; }
       .hero { min-height: 76vh; }
       .hero-card { width: calc(100% - 24px); }
+    }
+
+    /* Ver.7 mobile stability */
+    #archive, #archive * { visibility: visible; }
+    .archive-section { display: block; opacity: 1; transform: none; content-visibility: visible; }
+    .archive-section .section-inner, .archive-block, .song-timeline, .media-grid,
+    .youtube-card, .song-card, .media-card, .archive-card { min-width: 0; }
+    @supports not (aspect-ratio: 16 / 9) {
+      .youtube-thumb { height: 0; padding-bottom: 56.25%; }
+      .youtube-thumb img { position: absolute; inset: 0; }
+    }
+    @media (max-width: 560px) {
+      main { overflow: visible; }
+      #archive.archive-section { display: block !important; visibility: visible !important; opacity: 1 !important; transform: none !important; }
+      #archive .section-inner, #archive .archive-block { width: 100%; max-width: 100%; overflow: visible; }
+      #archive .documents-grid, #archive .media-grid { display: block; }
+      #archive .archive-card, #archive .media-card { margin-bottom: 20px; }
+      #archive .song-card { display: block; padding: 0; }
+      #archive .song-scene { display: inline-block; margin: 18px 18px 0; }
+      #archive .youtube-card-body { padding: 20px 18px 22px; }
     }
   </style>
 </head>
@@ -817,7 +838,7 @@
 
 
     <section id="archive" class="archive-section">
-      <div class="section-inner reveal">
+      <div class="section-inner">
         <div class="section-heading">
           <span class="number">STAGE ARCHIVE</span>
           <h2>舞台アーカイブ</h2>
@@ -1005,12 +1026,8 @@
     toggle.addEventListener('click', () => { const open = nav.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(open)); });
     nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }));
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    // Ver.7: no viewport-dependent visibility control.
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
   </script>
 </body>
 </html>
