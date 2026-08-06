@@ -1,23 +1,25 @@
-舞台『光～HIKARI～』前日譚 BGM対応・修正版
+舞台『光～HIKARI～』サイト Ver.9
 
-修正内容
-・EPISODE 01〜06、EPISODE Xの全ページにBGMプレイヤーを追加
-・各BGM名を表示
-・全話で同じ episode.css と共通レイアウトを使用
-・EPISODE Xの独自インラインCSSを廃止し、共通テンプレートへ統一
-・音源は preload="none" とし、再生操作後に読み込む仕様
+構成
+・index.html：非公式ファンサイト
+  - 前日譚
+  - 非公式イメージソング
+・archive.html：舞台アーカイブ
+  - 公演情報
+  - 配布物
+  - 公式オリジナル楽曲
+  - 映像
+
+主な変更
+・サイトタイトルを「舞台『光～HIKARI～』ファンサイト」に変更
+・トップページを「前日譚」と「非公式イメージソング」の2本立てに再構成
+・非公式イメージソング6曲をarchive.htmlからindex.htmlへ移動
+・各所に非公式サイト／非公式楽曲であることを明記
+・archive.htmlは公演記録中心の別ページとして維持
 
 GitHubへの反映
-1. episodes/ 内の7ファイルをリポジトリの episodes/ へ上書き
-2. assets/episode.css をリポジトリの assets/episode.css へ上書き
-3. assets/music/ に以下のMP3が存在することを確認
-   episode-01.mp3
-   episode-02.mp3
-   episode-03.mp3
-   episode-04.mp3
-   episode-05.mp3
-   episode-06.mp3
-   episode-x.mp3
-4. Commit changes
-5. Actions または Settings > Pages でデプロイ完了を確認
-6. 公開ページを Ctrl+F5 で再読み込み
+1. index.html、archive.html、404.html、README.txtをリポジトリ直下へ上書き
+2. assets/ と episodes/ は既存ファイルをそのまま使用
+3. Commit changes
+4. GitHub Pagesのデプロイ完了を確認
+5. スマホとPCで表示を確認
