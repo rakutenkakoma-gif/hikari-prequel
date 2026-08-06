@@ -18,6 +18,7 @@
 ・archive.htmlは公演記録中心の別ページとして維持
 
 GitHubへの反映
+
 1. index.html、archive.html、404.html、README.txtをリポジトリ直下へ上書き
 2. assets/ と episodes/ は既存ファイルをそのまま使用
 3. Commit changes
